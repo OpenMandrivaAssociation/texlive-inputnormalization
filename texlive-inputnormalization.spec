@@ -1,6 +1,6 @@
 Name:		texlive-inputnormalization
 Version:	59850
-Release:	1
+Release:	2
 Summary:	Wrapper for XeTeX's and LuaTeX's input normalization
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/inputnormalization
