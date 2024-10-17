@@ -3,7 +3,7 @@ Version:	59850
 Release:	2
 Summary:	Wrapper for XeTeX's and LuaTeX's input normalization
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/inputnormalization
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/inputnormalization
 License:	lppl1.3
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/inputnormalization.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/inputnormalization.doc.r%{version}.tar.xz
