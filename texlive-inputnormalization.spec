@@ -1,41 +1,23 @@
-Name:		texlive-inputnormalization
-Version:	59850
-Release:	2
-Summary:	Wrapper for XeTeX's and LuaTeX's input normalization
+%global tl_name inputnormalization
+%global tl_revision 78101
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.2
+Release:	%{tl_revision}.1
+Summary:	Wrapper for XeTeXs and LuaTeXs input normalization
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/inputnormalization
+URL:		https://www.ctan.org/tex-archive/macros/unicodetex/generic/inputnormalization
 License:	lppl1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/inputnormalization.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/inputnormalization.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/inputnormalization.source.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/inputnormalization.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/inputnormalization.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/inputnormalization.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-This package provides a cross engine interface to normalizing
-input before it's read by TeX. It is based on XeTeX's
-\XeTeXinputnormalization primitive and lua-uni-algos for
-LuaTeX.
+This package provides a cross engine interface to normalizing input
+before it's read by TeX. It is based on XeTeX's \XeTeXinputnormalization
+primitive and lua-uni-algos for LuaTeX.
 
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%doc %{_texmfdistdir}/source/latex/inputnormalization
-%{_texmfdistdir}/tex/latex/inputnormalization
-%doc %{_texmfdistdir}/doc/latex/inputnormalization
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
